@@ -4,6 +4,13 @@ A simple and responsive Weather Application that provides real-time weather info
 
 The project focuses on creating a clean user experience while working with a real-world weather API and dynamically displaying weather data.
 
+## 🌐 Live Demo
+
+🚀 **Try the Weather App:**
+👉 https://weather-app-ykc6.onrender.com/
+
+Experience the application live and search for real-time weather information for any city.
+
 ✨ Features
 🌍 Search weather by city name
 🌡️ Real-time temperature information
