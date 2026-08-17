@@ -11,15 +11,25 @@ The project focuses on creating a clean user experience while working with a rea
 
 Experience the application live and search for real-time weather information for any city.
 
+
 ✨ Features
+
 🌍 Search weather by city name
+
 🌡️ Real-time temperature information
+
 ☁️ Current weather conditions
+
 💧 Humidity information
+
 💨 Wind speed
+
 🌅 Dynamic weather information based on the searched location
+
 📱 Responsive and user-friendly interface
+
 🔗 Integrated with the OpenWeather API
+
 🛠️ Technologies Used
 HTML – Structure of the application
 CSS – Styling and responsive design
