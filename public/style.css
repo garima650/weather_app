@@ -1,0 +1,248 @@
+* {  
+    margin: 0;  
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+        background-color: #0f0c20;
+    /* Two soft, giant radial glows baked directly into the background texture */
+    background-image: 
+        radial-gradient(circle at 15% 20%, rgba(229, 132, 251, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(118, 72, 165, 0.2) 0%, transparent 50%);
+
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; 
+}
+
+/* ==========================================================================
+   FALLING PETALS BACKDROP
+   ========================================================================== */
+.petal {
+    position: absolute;
+    top: -60px; 
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 70% 30% 60% 40% / 60% 40% 60% 30%;
+    transform: skewX(-8deg) skewY(4deg);
+    box-shadow: inset -3px -3px 8px rgba(0, 0, 0, 0.12), 
+                inset 4px 4px 10px rgba(255, 255, 255, 0.5);
+    animation: luxuriousFall 14s linear infinite, petalSway 5s ease-in-out infinite alternate;
+}
+
+/* Row 1-5 */
+.p1  { width: 22px; height: 26px; left: 10%;  background: linear-gradient(135deg, #fff2f9, #f5bade); animation-duration: 11s, 4s;   animation-delay: 0s, 0s; }
+.p2  { width: 28px; height: 32px; left: 25%;  background: linear-gradient(135deg, #f7e6ff, #cf9ef2); animation-duration: 15s, 5s;   animation-delay: 2s, 0.5s; }
+.p3  { width: 18px; height: 21px; left: 40%;  background: linear-gradient(135deg, #ffffff, #eae3f0); animation-duration: 12s, 3.5s; animation-delay: 5s, 0s; }
+.p4  { width: 26px; height: 30px; left: 60%;  background: linear-gradient(135deg, #fff0f5, #e8a2ca); animation-duration: 14s, 4.5s; animation-delay: 1s, 1s; }
+.p5  { width: 24px; height: 28px; left: 80%;  background: linear-gradient(135deg, #f5e6ff, #be93eb); animation-duration: 16s, 5.5s; animation-delay: 3s, 0.2s; }
+
+/* Row 6-10 */
+.p6  { width: 32px; height: 36px; left: 18%;  background: linear-gradient(135deg, #f3e1fc, #bc8be0); animation-duration: 17s, 4.8s; animation-delay: 6s, 1.5s; }
+.p7  { width: 20px; height: 24px; left: 33%;  background: linear-gradient(135deg, #fff0f8, #f0acd4); animation-duration: 13s, 4.2s; animation-delay: 4s, 0.8s; }
+.p8  { width: 27px; height: 31px; left: 52%;  background: linear-gradient(135deg, #ffffff, #e1d8eb); animation-duration: 15s, 5.2s; animation-delay: 8s, 0s; }
+.p9  { width: 22px; height: 26px; left: 72%;  background: linear-gradient(135deg, #fff5fa, #f2b3db); animation-duration: 11s, 3.8s; animation-delay: 7s, 2s; }
+.p10 { width: 34px; height: 40px; left: 90%;  background: linear-gradient(135deg, #eed8fc, #b57ade); animation-duration: 18s, 5.8s; animation-delay: 2.5s, 0.4s; }
+
+/* Row 11-15 */
+.p11 { width: 21px; height: 25px; left: 5%;   background: linear-gradient(135deg, #fff0f7, #efa5d1); animation-duration: 14s, 4.1s; animation-delay: 9s, 1.2s; }
+.p12 { width: 26px; height: 30px; left: 47%;  background: linear-gradient(135deg, #f1daf7, #c686e6); animation-duration: 16s, 5.1s; animation-delay: 11s, 0.3s; }
+.p13 { width: 19px; height: 22px; left: 66%;  background: linear-gradient(135deg, #ffffff, #ebdff5); animation-duration: 12s, 3.9s; animation-delay: 3.5s, 0s; }
+.p14 { width: 30px; height: 35px; left: 85%;  background: linear-gradient(135deg, #fce6f2, #e59ec5); animation-duration: 15s, 4.6s; animation-delay: 12s, 1.7s; }
+.p15 { width: 23px; height: 27px; left: 29%;  background: linear-gradient(135deg, #f6eafc, #cda2ed); animation-duration: 13s, 4.3s; animation-delay: 0.5s, 0.6s; }
+
+@keyframes luxuriousFall {
+    0% { top: -60px; opacity: 0; transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(0.8); }
+    12% { opacity: 0.85; }
+    88% { opacity: 0.85; }
+    100% { top: 105vh; opacity: 0; transform: rotateX(360deg) rotateY(720deg) rotateZ(540deg) scale(1.05); }
+}
+
+@keyframes petalSway {
+    0% { margin-left: 0px; }
+    100% { margin-left: 60px; }
+}
+
+/* ==========================================================================
+   WEATHER CARD LAYOUT
+   ========================================================================== */
+.card {
+    width: 90%;
+    background: linear-gradient(135deg, #e584fb, #7648a5);
+    max-width: 500px;
+    color: #fff;
+    margin: 40px auto; 
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    animation: cardEntrance 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes cardEntrance {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.search input {
+    background: hsl(278, 35%, 82%);
+    color: #333;
+    height: 60px;
+    border: none;
+    outline: none;
+    padding: 10px 25px;
+    font-size: 18px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    transition: all 0.3s ease;
+}
+
+.search input:focus {
+    background: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.search button {
+    background: hsl(278, 35%, 82%);
+    color: #555;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search button:hover { transform: scale(1.08); background: #fff; }
+.search button img { width: 20px; }
+.weather-icon { width: 170px; margin: 30px 0; }
+
+/* ==========================================================================
+   NEW TEXT MICRO-ANIMATIONS
+   ========================================================================== */
+
+/* Main Temperature Number (26°C) */
+.weather h1 {
+    font-size: 80px;
+    font-weight: 500;
+    
+    /* TEXT ANIMATION: Scales up smoothly like a modern dashboard counting into frame */
+    animation: popScaleCount 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    transform-origin: center;
+}
+
+@keyframes popScaleCount {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* City Label (Bareilly) */
+.weather h2 {
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: -10px;
+    opacity: 0;
+    
+    /* TEXT ANIMATION: Staggered entry slides cleanly up from underneath the numbers */
+    animation: textSlideUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 0.3s; /* Delays entrance until temp finishes loading */
+}
+
+@keyframes textSlideUp {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Lower Metrics Text Container (.humidity and .wind values) */
+.humidity, .wind {
+    font-size: 40px;
+    margin-top: -6px;
+    
+    /* TEXT ANIMATION: Soft breathing look so the active numbers feel dynamic */
+    animation: valueBreathe 3s ease-in-out infinite alternate;
+}
+
+@keyframes valueBreathe {
+    0% { transform: scale(1); filter: drop-shadow(0 2px 2px rgba(255,255,255,0)); }
+    100% { transform: scale(1.03); filter: drop-shadow(0 2px 8px rgba(255,255,255,0.25)); }
+}
+
+/* Small Subtitle Labels ("Humidity", "Wind Speed") */
+.col p {
+    font-size: 14px;
+    opacity: 0.8;
+    
+    /* TEXT ANIMATION: Subtle fading shine sweep effect */
+    animation: subShine 4s ease-in-out infinite alternate;
+}
+
+@keyframes subShine {
+    0% { opacity: 0.65; letter-spacing: 0px; }
+    100% { opacity: 0.95; letter-spacing: 0.5px; }
+}
+
+/* ==========================================================================
+   APP STATES
+   ========================================================================== */
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin-top: 50px;
+}
+
+.col {   
+    display: flex;
+    text-align: left;
+    align-items: center;
+}
+
+.col img { width: 40px; margin-right: 10px; }
+
+.weather {
+    display: none; 
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.error { 
+    text-align: center;
+    margin-left: -30px;
+    font-size: 30px;
+    margin-top: 10px;
+    display: none;
+    color: #fff;
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
