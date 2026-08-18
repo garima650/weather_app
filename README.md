@@ -31,11 +31,17 @@ Experience the application live and search for real-time weather information for
 🔗 Integrated with the OpenWeather API
 
 🛠️ Technologies Used
+
 HTML – Structure of the application
+
 CSS – Styling and responsive design
+
 JavaScript – Application logic and API integration
+
 Node.js & Express.js – Backend/server setup
+
 OpenWeather API – Real-time weather data
+
 🔌 API Integration
 
 This project uses the OpenWeather API to fetch real-time weather information.
@@ -43,9 +49,13 @@ This project uses the OpenWeather API to fetch real-time weather information.
 When a user searches for a city, the application sends a request to the OpenWeather API and retrieves relevant weather data such as:
 
 Temperature
+
 Weather condition
+
 Humidity
+
 Wind speed
+
 Location details
 
 The retrieved data is then dynamically displayed on the application.
